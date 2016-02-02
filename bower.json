@@ -2,7 +2,10 @@
     "name": "md-steppers",
     "description": "Angular-Material Steppers.",
     "version": "0.1.0",
-    "main": "/dist/md-steppers.js",
+    "main": [
+        "/dist/md-steppers.js",
+        "/dist/md-steppers.css"
+    ],
     "moduleType": [
         "amd"
     ],
