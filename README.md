@@ -5,6 +5,9 @@ https://www.google.com/design/spec/components/steppers.html#steppers-types-of-st
   - basic directive based on material steppers
 
 ### usage
+```shell
+bower install md-steppers --save
+```
 ```javascript
 //module
 var app = angular.module('app', ['ngMaterial', 'md-steppers']);
