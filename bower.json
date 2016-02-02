@@ -1,0 +1,26 @@
+{
+    "name": "md-steppers",
+    "description": "Angular-Material Steppers.",
+    "version": "0.1.0",
+    "main": "/dist/md-steppers.js",
+    "moduleType": [
+        "amd"
+    ],
+    "keywords": [
+        "steppers",
+        "angular",
+        "angular-material"
+    ],
+    "authors": [
+        "roel b <roel.mail73@gmail.com>"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/ipiz",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}
