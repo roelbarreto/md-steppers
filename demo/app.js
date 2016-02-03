@@ -9,8 +9,8 @@ app.controller('MainCtrl', function ($scope, $q, $timeout) {
     vm.maxStep = 3;
     vm.showBusyText = false;
     vm.stepData = [
-        { step: 1, completed: false, optional: false, data: { brand: '' } },
-        { step: 2, completed: false, optional: false, data: { model: '' } },
+        { step: 1, completed: false, optional: false, data: {} },
+        { step: 2, completed: false, optional: false, data: {} },
         { step: 3, completed: false, optional: false, data: {} },
     ];
 
@@ -32,11 +32,11 @@ app.controller('MainCtrl', function ($scope, $q, $timeout) {
         }
     }
 
-    vm.submitCurrentStep = function submitCurrentStep(stepData) {
+    vm.submitCurrentStep = function submitCurrentStep(stepData, isSkip) {
         var deferred = $q.defer();
         vm.showBusyText = true;
         console.log('On before submit');
-        if (!stepData.completed) {
+        if (!stepData.completed && !isSkip) {
             //simulate $http
             $timeout(function () {
                 vm.showBusyText = false;
