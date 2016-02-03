@@ -26,7 +26,7 @@ function MdSteppersController($scope, $element, $window, $mdConstant, $mdStepInk
     defineProperty('shouldPaginate', handleShouldPaginate, false);
 
     // define boolean attributes
-    defineBooleanAttribute('noInkBar', handleInkBar);
+    defineBooleanAttribute('noInkBar', handleInkBar, true);
     defineBooleanAttribute('dynamicHeight', handleDynamicHeight);
     defineBooleanAttribute('noPagination');
     defineBooleanAttribute('swipeContent');

@@ -155,7 +155,7 @@ function MdSteppersController($scope, $element, $window, $mdConstant, $mdStepInk
     defineProperty('shouldPaginate', handleShouldPaginate, false);
 
     // define boolean attributes
-    defineBooleanAttribute('noInkBar', handleInkBar);
+    defineBooleanAttribute('noInkBar', handleInkBar, true);
     defineBooleanAttribute('dynamicHeight', handleDynamicHeight);
     defineBooleanAttribute('noPagination');
     defineBooleanAttribute('swipeContent');
@@ -973,7 +973,7 @@ function MdSteppers() {
                         'md-scope="::step.parent" ',
                         '></md-step-label-wrapper>',
                     '</md-step-item> ',
-                    //'<md-ink-bar></md-ink-bar> ' ,
+                  '<md-ink-bar></md-ink-bar> ' ,
                   '</md-pagination-wrapper> ' ,
                   '<div class="md-visually-hidden md-dummy-wrapper"> ' ,
                     '<md-dummy-step ' ,

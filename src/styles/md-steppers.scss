@@ -201,22 +201,24 @@ md-steppers-canvas {
     }
 }
 
-md-pagination-wrapper {
-    @include pie-clearfix;
-    $duration: $swift-ease-in-out-duration * 0.25;
-    height: $steppers-header-height;
-    display: block;
-    transition: transform $swift-ease-in-out-duration $swift-ease-in-out-timing-function, opacity$duration $swift-ease-in-out-timing-function;
-    position: absolute;
-    width: 999999px;
-    left: 0;
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
+md-steppers {
+    md-pagination-wrapper {
+        @include pie-clearfix;
+        $duration: $swift-ease-in-out-duration * 0.25;
+        height: $steppers-header-height;
+        display: block;
+        transition: transform $swift-ease-in-out-duration $swift-ease-in-out-timing-function, opacity$duration $swift-ease-in-out-timing-function;
+        position: absolute;
+        width: 999999px;
+        left: 0;
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
 
-    &.md-center-steppers {
-        position: relative;
-        width: initial;
-        margin: 0 auto;
+        &.md-center-steppers {
+            position: relative;
+            width: initial;
+            margin: 0 auto;
+        }
     }
 }
 
@@ -312,23 +314,25 @@ md-step-content {
     }
 }
 
-md-ink-bar {
-    $duration: $swift-ease-in-out-duration * 0.5;
-    background: $steppers-md-primary-color;
-    opacity: 0.5;
-    $multiplier: 0.5;
-    position: absolute;
-    left: auto;
-    right: auto;
-    bottom: 0;
-    height: 2px;
+.md-step {
+    md-ink-bar {
+        $duration: $swift-ease-in-out-duration * 0.5;
+        background: $steppers-md-primary-color;
+        opacity: 0.5;
+        $multiplier: 0.5;
+        position: absolute;
+        left: auto;
+        right: auto;
+        bottom: 0;
+        height: 2px;
 
-    &.md-left {
-        transition: left ($duration * $multiplier) $swift-ease-in-out-timing-function, right $duration $swift-ease-in-out-timing-function;
-    }
+        &.md-left {
+            transition: left ($duration * $multiplier) $swift-ease-in-out-timing-function, right $duration $swift-ease-in-out-timing-function;
+        }
 
-    &.md-right {
-        transition: left $duration $swift-ease-in-out-timing-function, right ($duration * $multiplier) $swift-ease-in-out-timing-function;
+        &.md-right {
+            transition: left $duration $swift-ease-in-out-timing-function, right ($duration * $multiplier) $swift-ease-in-out-timing-function;
+        }
     }
 }
 
