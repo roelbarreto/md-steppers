@@ -4,6 +4,8 @@ https://www.google.com/design/spec/components/steppers.html#steppers-types-of-st
 
   - basic directive based on material steppers
 
+demo https://ipiz.herokuapp.com/demo/index.html
+
 ### usage
 ```shell
 bower install md-steppers --save
