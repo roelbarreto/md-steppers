@@ -38,7 +38,7 @@
         "md-steppers"
     ],
     "author": "Roel B <roel.mail73@gmail.com>",
-    "license": "GPL-2.0",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/ipiz/md-steppers/issues"
     },
