@@ -96,6 +96,7 @@ md-steppers {
         md-steppers-wrapper {
             border-width: 0 0 1px;
             border-style: solid;
+            border-color: #DDD;
         }
 
         &:not(.md-dynamic-height) {
@@ -158,15 +159,17 @@ md-steppers-wrapper {
         }
     }
 
-    &.md-stretch-steppers {
-        md-pagination-wrapper {
-            width: 100%;
-            display: flex;
-            flex-direction: row;
+    @media (min-width: 960px) {
+        &.md-stretch-steppers {
+            md-pagination-wrapper {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
 
 
-            md-step-item {
-                flex-grow: 1;
+                md-step-item {
+                    flex-grow: 1;
+                }
             }
         }
     }
@@ -197,6 +200,25 @@ md-steppers-canvas {
         .md-step {
             float: none;
             display: inline-block;
+        }
+    }
+}
+
+/*always center for mobile*/
+@media (max-width: 959px) {
+
+    md-steppers-canvas {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        .md-step {
+            float: none;
+            display: inline-block;
+        }
+
+        md-pagination-wrapper {
+            width: 100% !important;
         }
     }
 }
@@ -368,7 +390,7 @@ md-step {
         height: 2px;
         line-height: 1px;
         vertical-align: middle;
-        border-radius: 1px;
+        border-radius: 0 1px 1px 0;
         content: '';
         opacity: 0.5;
         flex-grow: 1;
@@ -377,14 +399,14 @@ md-step {
 
     &::after {
         background: rgba(0, 0, 0, 0.25);
+        box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.25);
         display: inline-block;
         width: 40px;
-        margin-left: 8px;
         text-align: center;
         height: 2px;
         line-height: 1px;
         vertical-align: middle;
-        border-radius: 1px;
+        border-radius: 1px 0 0 1px;
         content: '';
         opacity: 0.5;
         flex-grow: 1;
@@ -423,6 +445,10 @@ md-step {
     md-step-label-wrapper {
         flex-grow: 0;
 
+        span {
+            margin-right: 8px;
+        }
+
         &::before {
             background: rgba(0, 0, 0, 0.25);
             color: rgba(255,255,255,0.87);
@@ -437,6 +463,13 @@ md-step {
             content: attr(stepindex);
             flex-grow: 0;
             align-self: center;
+        }
+
+        @media (max-width: 959px) {
+
+            span {
+                display: none;
+            }
         }
     }
 
