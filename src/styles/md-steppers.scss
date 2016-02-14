@@ -224,22 +224,24 @@ md-steppers-canvas {
 }
 
 md-steppers {
-    md-pagination-wrapper {
-        @include pie-clearfix;
-        $duration: $swift-ease-in-out-duration * 0.25;
-        height: $steppers-header-height;
-        display: block;
-        transition: transform $swift-ease-in-out-duration $swift-ease-in-out-timing-function, opacity$duration $swift-ease-in-out-timing-function;
-        position: absolute;
-        width: 999999px;
-        left: 0;
-        transform: translate3d(0, 0, 0);
-        opacity: 1;
+    md-steppers-wrapper {
+        md-pagination-wrapper {
+            @include pie-clearfix;
+            $duration: $swift-ease-in-out-duration * 0.25;
+            height: $steppers-header-height;
+            display: block;
+            transition: transform $swift-ease-in-out-duration $swift-ease-in-out-timing-function, opacity$duration $swift-ease-in-out-timing-function;
+            position: absolute;
+            width: 999999px;
+            left: 0;
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
 
-        &.md-center-steppers {
-            position: relative;
-            width: initial;
-            margin: 0 auto;
+            &.md-center-steppers {
+                position: relative;
+                width: initial;
+                margin: 0 auto;
+            }
         }
     }
 }

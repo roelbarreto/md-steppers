@@ -171,7 +171,7 @@ md-steppers-canvas {
     md-steppers-canvas md-pagination-wrapper {
       width: 100% !important; } }
 
-md-steppers md-pagination-wrapper {
+md-steppers md-steppers-wrapper md-pagination-wrapper {
   height: 72px;
   display: block;
   -webkit-transition: opacity 0.125s cubic-bezier(0.35, 0, 0.25, 1), -webkit-transform 0.5s cubic-bezier(0.35, 0, 0.25, 1);
@@ -184,11 +184,11 @@ md-steppers md-pagination-wrapper {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
   opacity: 1; }
-  md-steppers md-pagination-wrapper:after {
+  md-steppers md-steppers-wrapper md-pagination-wrapper:after {
     content: '';
     display: table;
     clear: both; }
-  md-steppers md-pagination-wrapper.md-center-steppers {
+  md-steppers md-steppers-wrapper md-pagination-wrapper.md-center-steppers {
     position: relative;
     width: initial;
     margin: 0 auto; }
