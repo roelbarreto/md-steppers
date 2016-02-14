@@ -193,7 +193,7 @@ md-steppers md-steppers-wrapper md-pagination-wrapper {
     width: initial;
     margin: 0 auto; }
 
-md-busy {
+md-steppers md-steppers-wrapper md-busy {
   left: 0;
   top: 0;
   bottom: 0;
@@ -213,14 +213,14 @@ md-busy {
   text-align: left;
   -webkit-transform: scaleY(1) translateY(0);
           transform: scaleY(1) translateY(0); }
-  md-busy.ng-hide {
+  md-steppers md-steppers-wrapper md-busy.ng-hide {
     opacity: 0;
     -webkit-transform: scaleY(0.75) translateY(20px);
             transform: scaleY(0.75) translateY(20px); }
-    md-busy.ng-hide ~ md-pagination-wrapper {
+    md-steppers md-steppers-wrapper md-busy.ng-hide ~ md-pagination-wrapper {
       opacity: 1;
       pointer-events: initial; }
-  md-busy ~ md-pagination-wrapper {
+  md-steppers md-steppers-wrapper md-busy ~ md-pagination-wrapper {
     opacity: 0;
     pointer-events: none; }
 
