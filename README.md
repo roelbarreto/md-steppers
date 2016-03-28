@@ -15,7 +15,7 @@ bower install md-steppers --save
 var app = angular.module('app', ['ngMaterial', 'md-steppers']);
 ```
 ```html
-<!--markup--->
+<!--markup-->
 <md-steppers>
     <md-step label="Step 1" md-complete="step1.completed"  ng-disabled="step1.disabled">
         <md-content></md-content>
