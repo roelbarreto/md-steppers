@@ -32,7 +32,7 @@ function MdSteppersController($scope, $element, $window, $mdConstant, $mdStepInk
     defineBooleanAttribute('swipeContent');
     defineBooleanAttribute('noDisconnect');
     defineBooleanAttribute('autoselect');
-    defineBooleanAttribute('centerSteppers', handleCenterSteppers, false);
+    defineBooleanAttribute('centerSteppers', handleCenterSteppers, true);
     defineBooleanAttribute('enableDisconnect');
 
     // define public properties

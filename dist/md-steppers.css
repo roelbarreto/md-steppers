@@ -59,7 +59,8 @@ md-steppers {
     position: relative; }
   md-steppers[md-border-bottom] md-steppers-wrapper {
     border-width: 0 0 1px;
-    border-style: solid; }
+    border-style: solid;
+    border-color: #DDD; }
   md-steppers[md-border-bottom]:not(.md-dynamic-height) md-steppers-content-wrapper {
     top: 73px; }
 
@@ -134,7 +135,10 @@ md-steppers-canvas {
     top: 0;
     left: 0; }
   md-steppers-canvas.md-paginated {
-    margin: 0 32px; }
+    margin: 0 5px; }
+    @media (max-width: 320px) {
+      md-steppers-canvas.md-paginated .md-step span {
+        display: none; } }
   md-steppers-canvas.md-center-steppers {
     display: -webkit-box;
     display: -webkit-flex;
@@ -150,7 +154,8 @@ md-steppers-canvas {
       float: none;
       display: inline-block; }
 
-md-steppers md-pagination-wrapper {
+/*always center for mobile*/
+md-steppers md-steppers-wrapper md-pagination-wrapper {
   height: 72px;
   display: block;
   -webkit-transition: opacity 0.125s cubic-bezier(0.35, 0, 0.25, 1), -webkit-transform 0.5s cubic-bezier(0.35, 0, 0.25, 1);
@@ -163,16 +168,16 @@ md-steppers md-pagination-wrapper {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
   opacity: 1; }
-  md-steppers md-pagination-wrapper:after {
+  md-steppers md-steppers-wrapper md-pagination-wrapper:after {
     content: '';
     display: table;
     clear: both; }
-  md-steppers md-pagination-wrapper.md-center-steppers {
+  md-steppers md-steppers-wrapper md-pagination-wrapper.md-center-steppers {
     position: relative;
     width: initial;
     margin: 0 auto; }
 
-md-busy {
+md-steppers md-steppers-wrapper md-busy {
   left: 0;
   top: 0;
   bottom: 0;
@@ -192,14 +197,14 @@ md-busy {
   text-align: left;
   -webkit-transform: scaleY(1) translateY(0);
           transform: scaleY(1) translateY(0); }
-  md-busy.ng-hide {
+  md-steppers md-steppers-wrapper md-busy.ng-hide {
     opacity: 0;
     -webkit-transform: scaleY(0.75) translateY(20px);
             transform: scaleY(0.75) translateY(20px); }
-    md-busy.ng-hide ~ md-pagination-wrapper {
+    md-steppers md-steppers-wrapper md-busy.ng-hide ~ md-pagination-wrapper {
       opacity: 1;
       pointer-events: initial; }
-  md-busy ~ md-pagination-wrapper {
+  md-steppers md-steppers-wrapper md-busy ~ md-pagination-wrapper {
     opacity: 0;
     pointer-events: none; }
 
@@ -311,7 +316,7 @@ md-step {
     height: 2px;
     line-height: 1px;
     vertical-align: middle;
-    border-radius: 1px;
+    border-radius: 0 1px 1px 0;
     content: '';
     opacity: 0.5;
     -webkit-box-flex: 1;
@@ -323,14 +328,14 @@ md-step {
             align-self: center; }
   .md-step::after {
     background: rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.25);
     display: inline-block;
-    width: 40px;
-    margin-left: 8px;
+    width: 16px;
     text-align: center;
     height: 2px;
     line-height: 1px;
     vertical-align: middle;
-    border-radius: 1px;
+    border-radius: 1px 0 0 1px;
     content: '';
     opacity: 0.5;
     -webkit-box-flex: 1;
@@ -364,6 +369,8 @@ md-step {
     -webkit-flex-grow: 0;
         -ms-flex-positive: 0;
             flex-grow: 0; }
+    .md-step md-step-label-wrapper span {
+      margin-right: 8px; }
     .md-step md-step-label-wrapper::before {
       background: rgba(0, 0, 0, 0.25);
       color: rgba(255, 255, 255, 0.87);
