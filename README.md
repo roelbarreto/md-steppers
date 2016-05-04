@@ -8,8 +8,13 @@ demo https://ipiz.herokuapp.com/demo/index.html
 fiddle https://jsfiddle.net/ipiz/vcdbuyru/2/
 
 ### usage
+####  using bower
 ```shell
 bower install md-steppers --save
+```
+#### or using npm
+```shell
+npm install md-steppers --save
 ```
 ```javascript
 //module
