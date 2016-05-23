@@ -133,7 +133,9 @@ md-steppers-canvas {
   md-steppers-canvas .md-dummy-wrapper {
     position: absolute;
     top: 0;
-    left: 0; }
+    left: 0;
+    width: 1px;
+    height: 1px; }
   md-steppers-canvas.md-paginated {
     margin: 0 5px; }
     @media (max-width: 320px) {
