@@ -394,6 +394,7 @@ md-step {
     text-overflow: ellipsis;
     display: flex;
     flex-direction: row;
+    flex: 1;
 
     &::before {
         background: rgba(0, 0, 0, 0.25);
