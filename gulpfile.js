@@ -19,7 +19,8 @@ var gulp = require('gulp'),
 	http = require('http'),
 	st = require('st'),
 	del = require('del'),
-	merge = require('merge-stream');
+    merge = require('merge-stream'),
+    babel = require('gulp-babel');
 
 var debug = false;
 
@@ -69,17 +70,15 @@ gulp.task('js', function () {
     var templateStream = gulp.src(paths.src.templates)
 		.pipe(templateCache({ module: moduleName }));
     merge(jsStream, templateStream)
-
 		.pipe(gdebug())
-
-		//.pipe(debug({title: 'JS: '}))
 		//.pipe(sourcemaps.init())
+        .pipe(babel())
 		.pipe(concat(moduleName + '.js'))
 		//.pipe(sourcemaps.write('.'))
 		.pipe(closure(['angular', 'window']))
 		.pipe(ngAnnotate())
 		.pipe(gulp.dest(paths.dist))
-		.pipe(rename({ suffix: '.min' }))
+        .pipe(rename({ suffix: '.min' }))
 		.pipe(uglify())
 		.pipe(gulp.dest(paths.dist))
 		.pipe(livereload());

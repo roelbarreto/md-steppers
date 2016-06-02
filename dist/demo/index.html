@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html ng-app="app">
 
@@ -19,93 +18,61 @@
             <md-card>
                 <md-toolbar>
                     <div class="md-toolbar-tools">
-                        <h2>
+                        <md-button class="md-icon-button" aria-label="Settings">
                             <md-icon md-svg-icon="md-menu"></md-icon>
-                            <span>Create account</span>
-                        </h2>
+                        </md-button>
+                        <span>Create</span>
+                        <span flex></span>
+                        <md-button class="md-raised" ng-click="vm.vertical = !vm.vertical" aria-label="Learn More">
+                            Toggle Vertical/Horizontal
+                        </md-button>
                     </div>
                 </md-toolbar>
                 <md-stepper-card-content class="md-no-padding">
-                    <md-steppers md-dynamic-height md-stretch-steppers="always" md-selected="vm.selectedStep" md-busy-text="'Processing...'" md-busy="vm.showBusyText">
-                        <md-step label="Login detail" md-complete="vm.stepData[0].data.completed" ng-disabled="vm.stepProgress < 1">
+                    <md-steppers on-click-continue="vm.onContinue(stepData, index)" md-vertical-steppers="vm.vertical" md-selected="vm.selectedStep"
+                        md-busy-text="'Processing...'" md-busy="vm.showBusyText">
+                        <md-step label="Select campaign settings" md-complete="vm.step1.data.completed" ng-disabled="vm.stepProgress < 1">
                             <md-step-body>
-                                <form name="step1" ng-submit="vm.submitCurrentStep(vm.stepData[0].data)">
-                                    <md-content class="md-padding">
+                                <md-content class="md-padding bg-gray" style="height: 250px;">
+                                    <form name="vm.frmStep1" ng-submit="vm.submitCurrentStep(vm.step1.data)">
+                                        <div layout="column" layout-align="center top">
+                                            <h4>Please enter campaign name</h4>
+                                            <md-input-container class="md-block">
+                                                <label>Your campaign name here</label>
+                                                <input name="campaignname" ng-model="vm.step1.campaignname" />
+                                            </md-input-container>
+                                        </div>
+                                    </form>
+                                </md-content>
+                            </md-step-body>
+                        </md-step>
+                        <md-step label="Create and ad group" md-optional="true" md-editable="true" md-complete="vm.step2.data.completed" ng-disabled="vm.stepProgress < 2">
+                            <md-step-body>
+                                <md-content class="md-padding bg-gray" style="height: 250px;">
+                                    <form name="step2">
                                         <div layout="row" layout-align="center top">
                                             <div flex="nogrow" style="width: 400px">
-                                                <h4>Please enter your user name and password</h4>
+                                                <h4>Please enter ad groud name</h4>
                                                 <md-input-container class="md-block">
-                                                    <label>Your user name here</label>
-                                                    <input ng-disabled="vm.stepData[0].data.completed" name="username" ng-model="vm.stepData[0].data.username" required />
-                                                    <div ng-messages="step1.username.$error">
-                                                        <div ng-message="required">
-                                                            User name is required to proceed on next step.
-                                                        </div>
-                                                    </div>
-                                                </md-input-container>
-                                                <md-input-container class="md-block">
-                                                    <label>Your password here</label>
-                                                    <input ng-disabled="vm.stepData[0].data.completed" type="password" name="username" ng-model="vm.stepData[0].data.password" required />
-                                                    <div ng-messages="step1.password.$error">
-                                                        <div ng-message="required">
-                                                            Password required to proceed on next step.
-                                                        </div>
-                                                    </div>
+                                                    <label>Your ad group name here</label>
+                                                    <input name="groupname" ng-model="vm.step2.groupname" />
                                                 </md-input-container>
                                             </div>
                                         </div>
-                                    </md-content>
-                                    <md-step-actions layout="row">
-                                        <div flex layout="row" layout-align="end top">
-                                            <md-button class="md-warn">CANCEL</md-button>
-                                            <md-button type="submit" ng-disabled="!vm.stepData[0].data.username || !vm.stepData[0].data.password || vm.showBusyText" class="md-primary md-raised">NEXT</md-button>
-                                        </div>
-                                    </md-step-actions>
-                                </form>
+                                    </form>
+                                </md-content>
                             </md-step-body>
                         </md-step>
-                        <md-step label="Personal Info" md-complete="vm.stepData[1].data.completed" ng-disabled="vm.stepProgress < 2">
+                        <md-step label="Create an Ad" md-complete="vm.step3.data.completed" ng-disabled="vm.stepProgress < 3">
                             <md-step-body>
-                                <form name="step2">
-                                    <md-content class="md-padding">
-                                        <div layout="row" layout-align="center top">
-                                            <div flex="nogrow" style="width: 400px">
-                                                <h4>Please enter yout full name</h4>
-                                                <md-input-container class="md-block">
-                                                    <label>Your first name here</label>
-                                                    <input name="firsname" ng-model="vm.stepData[1].data.firsname"/>
-                                                </md-input-container>
-                                                <md-input-container class="md-block">
-                                                    <label>Your last name</label>
-                                                    <input name="lastname" ng-model="vm.stepData[1].data.lastname"/>
-                                                </md-input-container>
-                                            </div>
-                                        </div>
-                                    </md-content>
-                                    <md-step-actions layout="row">
-                                        <div flex>
-                                            <md-button ng-click="vm.moveToPreviousStep()">PREVIOUS</md-button>
-                                        </div>
-                                        <div flex layout="row" layout-align="end top">
-                                            <md-button class="md-warn">CANCEL</md-button>
-                                            <md-button ng-disabled="vm.showBusyText" ng-click="vm.submitCurrentStep(vm.stepData[1].data, !(vm.stepData[1].data.firsname && vm.stepData[1].data.lastname))" class="md-primary md-raised">
-                                                {{ vm.stepData[1].data.firsname && vm.stepData[1].data.lastname ? 'NEXT' : 'SKIP' }}
-                                            </md-button>
-                                        </div>
-                                    </md-step-actions>
-                                </form>
-                            </md-step-body>
-                        </md-step>
-                        <md-step label="Finish" md-complete="vm.stepData[2].data.completed" ng-disabled="vm.stepProgress < 3">
-                            <md-step-body>
-                                <form name="step2">
-                                    <md-content class="md-padding">
+                                <md-content class="md-padding bg-gray">
+                                    <form name="step3">
                                         <div layout="column" layout-align="center center" style="min-height: 200px">
                                             <h4>Account created!</h4>
                                             <md-button class="md-primary md-raised">GO TO DASHBOARD</md-button>
                                         </div>
-                                    </md-content>
-                                </form>
+                                    </form>
+                                </md-content>
                             </md-step-body>
                         </md-step>
                     </md-steppers>
@@ -129,5 +96,4 @@
 </body>
 
 </html>
-
 <script>document.write('<script src="http://' + (location.host || "localhost").split(":")[0] + ':3334/livereload.js?snipver=1"></' + 'script>');</script>

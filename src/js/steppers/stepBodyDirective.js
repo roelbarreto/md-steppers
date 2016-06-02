@@ -1,8 +1,8 @@
 angular
     .module('md-steppers')
-    .directive('mdStepLabel', MdStepLabel);
+    .directive('mdStepBody', MdStepBody);
 
-function MdStepLabel() {
+function MdStepBody() {
     return { terminal: true };
 }
 

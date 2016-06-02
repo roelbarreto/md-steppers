@@ -18,31 +18,26 @@ function MdStep() {
         require: '^?mdSteppers',
         terminal: true,
         compile: function (element, attr) {
-            var label = firstChild(element, 'md-step-label'),
-                body = firstChild(element, 'md-step-body'),
-                actions = firstChild(element, 'md-step-actions');
 
-            if (label.length == 0) {
-                label = angular.element('<md-step-label></md-step-label>');
-                if (attr.label) label.text(attr.label);
-                else label.append(element.contents());
+            var body = firstChild(element, 'md-step-body');
 
-                if (body.length == 0) {
-                    var contents = element.contents().detach();
-                    body = angular.element('<md-step-body></md-step-body>');
-                    body.append(contents);
-                }
+            if(body.length === 0){
+                body = angular
+                    .element('<md-step-body></md-step-body>')
+                    .append(element.contents().detach());
             }
-
-            element.append(label);
+            
             if (body.html()) element.append(body);
 
             return postLink;
         },
         scope: {
             complete: '=?mdComplete',
+            editable: '=?mdEditable',
+            optional: '=?mdOptional',
             active: '=?mdActive',
             disabled: '=?ngDisabled',
+            noCancel: '=?mdNoCancel',
             select: '&?mdOnSelect',
             deselect: '&?mdOnDeselect'
         }
@@ -52,35 +47,21 @@ function MdStep() {
         if (!ctrl) return;
         var index = ctrl.getStepElementIndex(element),
             body = firstChild(element, 'md-step-body').remove(),
-            label = firstChild(element, 'md-step-label').remove(),
-            data = ctrl.insertStep({
-                scope: scope,
-                parent: scope.$parent,
-                index: index,
-                element: element,
-                template: body.html(),
-                label: label.html()
-            }, index);
+            label = attr.label;
 
-        scope.select = scope.select || angular.noop;
-        scope.deselect = scope.deselect || angular.noop;
+        ctrl.insertStep({
+            scope: scope,
+            parent: scope.$parent,
+            index: index,
+            element: element,
+            template: body.html(),
+            label: label
+        }, index);
 
-        scope.$watch('active', function (active) { if (active) ctrl.select(data.getIndex()); });
-        scope.$watch('complete', function () { ctrl.refreshIndex(); });
-        scope.$watch('disabled', function () { ctrl.refreshIndex(); });
-        scope.$watch(
-            function () {
-                return ctrl.getStepElementIndex(element);
-            },
-            function (newIndex) {
-                data.index = newIndex;
-                ctrl.updateStepOrder();
-            }
-        );
-        scope.$on('$destroy', function () { ctrl.removeStep(data); });
     }
 
     function firstChild(element, tagName) {
+        if (element.length === 0) return angular.element();
         var children = element[0].children;
         for (var i = 0, len = children.length; i < len; i++) {
             var child = children[i];
