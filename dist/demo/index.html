@@ -26,7 +26,7 @@
                     </div>
                 </md-toolbar>
                 <md-stepper-card-content class="md-no-padding">
-                    <md-steppers md-dynamic-height md-stretch-steppers="always" md-selected="vm.selectedStep" md-busy-text="'Processing...'" md-busy="vm.showBusyText">
+                    <md-steppers md-dynamic-height md-disable-tabs-behavior="true" md-stretch-steppers="always" md-selected="vm.selectedStep" md-busy-text="'Processing...'" md-busy="vm.showBusyText">
                         <md-step label="Login detail" md-complete="vm.stepData[0].data.completed" ng-disabled="vm.stepProgress < 1">
                             <md-step-body>
                                 <form name="step1" ng-submit="vm.submitCurrentStep(vm.stepData[0].data)">
