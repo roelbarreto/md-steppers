@@ -418,6 +418,9 @@ md-step {
     -webkit-transition: none;
     transition: none; }
 
+.md-step-nopointer {
+  cursor: auto; }
+
 md-toolbar + md-steppers {
   border-top-left-radius: 0;
   border-top-right-radius: 0; }
