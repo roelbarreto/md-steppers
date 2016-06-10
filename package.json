@@ -1,6 +1,6 @@
 {
     "name": "md-steppers",
-    "version": "0.2.3",
+    "version": "0.2.5",
     "description": "Angular-Material Steppers.",
     "main": "./dist/md-steppers.js",
     "dependencies": { },

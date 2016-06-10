@@ -30,8 +30,9 @@ md-steppers {
   border-radius: 2px;
   overflow: hidden;
   position: relative;
-  -ms-flex-negative: 0;
-      flex-shrink: 0; }
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0; }
   md-steppers:not(.md-no-step-content):not(.md-dynamic-height) {
     min-height: 272px; }
   md-steppers[md-align-steppers="bottom"] {
@@ -106,14 +107,17 @@ md-steppers-wrapper {
   md-steppers-wrapper.md-stretch-steppers md-pagination-wrapper {
     width: 100%;
     display: -webkit-box;
+    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
         -ms-flex-direction: row;
             flex-direction: row; }
     md-steppers-wrapper.md-stretch-steppers md-pagination-wrapper md-step-item {
       -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
           -ms-flex-positive: 1;
               flex-grow: 1; }
 
@@ -133,9 +137,11 @@ md-steppers-canvas {
     width: 100%;
     height: 100%;
     display: -webkit-box;
+    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
             justify-content: space-between; }
   md-steppers-canvas.md-paginated {
@@ -145,10 +151,12 @@ md-steppers-canvas {
         display: none; } }
   md-steppers-canvas.md-center-steppers {
     display: -webkit-box;
+    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
     text-align: center; }
@@ -302,13 +310,16 @@ md-step {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
   -webkit-box-flex: 1;
+  -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1; }
   .md-step::before {
@@ -324,10 +335,12 @@ md-step {
     content: '';
     opacity: 0.5;
     -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
-    -ms-flex-item-align: center;
-        align-self: center; }
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+            align-self: center; }
   .md-step::after {
     background: rgba(0, 0, 0, 0.25);
     box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.25);
@@ -341,10 +354,12 @@ md-step {
     content: '';
     opacity: 0.5;
     -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
-    -ms-flex-item-align: center;
-        align-self: center; }
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+            align-self: center; }
   .md-step:first-child {
     padding-left: 24px;
     text-align: left; }
@@ -357,6 +372,7 @@ md-step {
     text-align: right; }
     .md-step:last-child::before {
       -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
           -ms-flex-positive: 1;
               flex-grow: 1; }
     .md-step:last-child::after {
@@ -365,6 +381,7 @@ md-step {
       width: 0; }
   .md-step md-step-label-wrapper {
     -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
         -ms-flex-positive: 0;
             flex-grow: 0; }
     .md-step md-step-label-wrapper span {
@@ -382,10 +399,12 @@ md-step {
       margin-right: 8px;
       content: attr(stepindex);
       -webkit-box-flex: 0;
+      -webkit-flex-grow: 0;
           -ms-flex-positive: 0;
               flex-grow: 0;
-      -ms-flex-item-align: center;
-          align-self: center; }
+      -webkit-align-self: center;
+          -ms-flex-item-align: center;
+              align-self: center; }
   .md-step.md-focused {
     box-shadow: none;
     outline: none; }
@@ -417,6 +436,9 @@ md-step {
   .md-step.ng-leave {
     -webkit-transition: none;
     transition: none; }
+
+.md-step-nopointer {
+  cursor: auto; }
 
 md-toolbar + md-steppers {
   border-top-left-radius: 0;
