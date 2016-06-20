@@ -1,7 +1,7 @@
 {
     "name": "md-steppers",
     "description": "Angular-Material Steppers.",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "main": [
         "./dist/md-steppers.js",
         "./dist/md-steppers.css"
@@ -25,5 +25,9 @@
         "bower_components",
         "test",
         "tests"
-    ]
+    ],
+    "dependencies": {
+        "angular": "^1.5.7",
+        "angular-material": "^1.0.9"
+    }
 }

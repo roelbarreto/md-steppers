@@ -17,7 +17,8 @@ var gulp = require('gulp'),
 	livereload = require('gulp-livereload'),
 	injectReload = require('gulp-inject-reload'),
 	http = require('http'),
-	st = require('st'),
+	express = require('express'),
+    app = express(),
 	del = require('del'),
 	merge = require('merge-stream');
 
@@ -32,6 +33,7 @@ var moduleName = 'md-steppers';
 var paths = {
     demo: 'demo',
     dist: 'dist/',
+    bower: 'bower_components/',
     src: {
         demo: ['demo/**/*.*'],
         sass: ['src/styles/*.scss'],
@@ -113,9 +115,11 @@ gulp.task('demo', ['demo-resources'], function () {
  ===================================================================*/
 gulp.task('server', ['build', 'demo'], function () {
     livereload.listen({ port: ports.livereload, basePath: "." });
-    http.createServer(
-		st({ path: path.resolve(__dirname, 'dist'), index: 'demo/redirect.html', cache: false })
-	).listen(ports.web);
+    app.use(express.static('./dist'));
+    app.use('/bower_components', express.static(__dirname + '/bower_components'));
+    app.use('/demo', express.static(__dirname + '/demo'));
+
+    http.createServer(app).listen(ports.web);
 
 
 });
