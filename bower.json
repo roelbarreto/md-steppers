@@ -1,7 +1,7 @@
 {
     "name": "md-steppers",
     "description": "Angular-Material Steppers.",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "main": [
         "./dist/md-steppers.js",
         "./dist/md-steppers.css"

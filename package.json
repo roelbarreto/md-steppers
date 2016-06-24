@@ -1,10 +1,10 @@
 {
     "name": "md-steppers",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "description": "Angular-Material Steppers.",
     "main": "./dist/md-steppers.js",
     "dependencies": {
-        "angular": "^1.5.7",
+        "angular": "^1.4.8",
         "angular-material": "^1.0.9"
     },
     "devDependencies": {
