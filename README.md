@@ -36,7 +36,7 @@ var app = angular.module('app', ['ngMaterial', 'md-steppers']);
 ```
 
 ```
-clone repository and run gulp for demo http://localhost:3333
+clone repository and run gulp for demo http://localhost.com:3333/demo/index.html
 ```
 
 ![md-steppers Screenshot](https://raw.githubusercontent.com/ipiz/md-steppers/master/md-steppers.png "md-steppers Screenshot")
