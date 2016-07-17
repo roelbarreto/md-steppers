@@ -9,8 +9,8 @@ $steppers-paginator-width: $baseline-grid * 4 !default;
 $steppers-step-width: $baseline-grid * 12 !default;
 $steppers-header-height: 72px !default;
 
-$steppers-md-primary-color: rgb(16,108,200);
-$steppers-md-warn-color: rgb(255,87,34);
+$steppers-md-primary-color: rgb(16,108,200) !default;
+$steppers-md-warn-color: rgb(255,87,34) !default;
 
 @mixin pie-clearfix {
     &:after {
