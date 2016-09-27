@@ -502,14 +502,14 @@ md-step {
 
     &.md-complete {
         md-step-label-wrapper::before {
-            content: '\7';
+            content: '';
             background: $steppers-md-primary-color url("data:image/svg+xml;charset=utf8,%3Csvg fill='rgba(255,255,255,0.87)' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") no-repeat center center;
         }
     }
 
     &.md-complete.md-active {
         md-step-label-wrapper::before {
-            content: '\7';
+            content: '';
             background: $steppers-md-primary-color url("data:image/svg+xml;charset=utf8,%3Csvg fill='rgba(255,255,255,0.87)' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") no-repeat center center;
         }
     }
