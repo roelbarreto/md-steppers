@@ -327,6 +327,7 @@ md-step {
         -ms-flex-positive: 1;
             flex-grow: 1;
     -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
         align-self: center; }
   .md-step::after {
     background: rgba(0, 0, 0, 0.25);
@@ -344,6 +345,7 @@ md-step {
         -ms-flex-positive: 1;
             flex-grow: 1;
     -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
         align-self: center; }
   .md-step:first-child {
     padding-left: 24px;
@@ -385,6 +387,7 @@ md-step {
           -ms-flex-positive: 0;
               flex-grow: 0;
       -ms-flex-item-align: center;
+          -ms-grid-row-align: center;
           align-self: center; }
   .md-step.md-focused {
     box-shadow: none;

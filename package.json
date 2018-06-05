@@ -1,6 +1,6 @@
 {
     "name": "md-steppers",
-    "version": "0.3.4",
+    "version": "0.4.0",
     "description": "Angular-Material Steppers.",
     "main": "./dist/md-steppers.js",
     "dependencies": {
@@ -29,8 +29,7 @@
         "run-sequence": "^1.1.2",
         "streamqueue": "^1.1.1"
     },
-    "scripts": {
-    },
+    "scripts": {},
     "repository": {
         "type": "git",
         "url": "https://github.com/ipiz/md-steppers"
