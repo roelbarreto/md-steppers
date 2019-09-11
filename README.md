@@ -2,6 +2,9 @@
 angular directive for material stepper
 https://www.google.com/design/spec/components/steppers.html#steppers-types-of-steppers
 
+
+[![npm version](https://badge.fury.io/js/md-steppers.svg)](http://badge.fury.io/js/md-steppers)
+
   - basic directive based on material steppers
 
 demo https://ipiz.herokuapp.com/demo/index.html
